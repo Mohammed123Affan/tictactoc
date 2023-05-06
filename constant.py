@@ -1,0 +1,14 @@
+width = 600
+height = 600
+rows = 3
+cols = 3
+sqsize = width // cols
+radius = sqsize // 4
+line_width = 15
+circ_width = 15
+cross_width = 20
+offset = 50
+BG_color = (153,0,153)
+line_color = (255,51,255)
+circ_color = (255,255,255)
+cross_color = (0,0,0)
