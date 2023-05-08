@@ -112,7 +112,7 @@ class AI:
             return 0, None
 
         if maximizing:
-            max_eval = -100
+            max_eval = 0
             best_move = None
             empty_sqrs = board.get_empty_sqrs()
 
@@ -123,10 +123,12 @@ class AI:
                 if eval > max_eval:
                     max_eval = eval
                     best_move = (row, col)
+                    if max_eval == 1:
+                        break
             return max_eval, best_move
 
         elif not maximizing:
-            min_eval = 100
+            min_eval = 1
             best_move = None
             empty_sqrs = board.get_empty_sqrs()
 
@@ -134,7 +136,7 @@ class AI:
                 temp_board = copy.deepcopy(board)
                 temp_board.mark_sqr(row, col, self.player)
                 eval = self.minimax(temp_board, True)[0]
-                if eval < min_eval:
+                if eval <= min_eval:
                     min_eval = eval
                     best_move = (row, col)
             return min_eval, best_move
